@@ -1,0 +1,7 @@
+<h2>Create Recipe object</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <a href="{% url 'home' %}"><button type="submit" value="create">create</button></a>
+</form>

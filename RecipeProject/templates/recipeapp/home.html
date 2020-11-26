@@ -1,0 +1,28 @@
+{% load static %}
+<center><h2>RecipeRestaurant</h2></center>
+<p></p>
+<table>
+    <thead>
+    <tr>
+        <th>Item Name</th>
+        <th>Recipe Image</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for ele in data %}
+        <tr>
+        <td><a href="/{{ ele.id }}">{{ ele.recipename }}</a></td>
+            <td><img src="{{ ele.recipepic.url }}" height="80" width="80" alt="ele.recipename"></img> </td>
+        <td>
+            <form method="post" action="{% url 'delete' ele.id %}">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br>
+<center><a href="{% url 'create' %}">Create Recipe</a> </center>
