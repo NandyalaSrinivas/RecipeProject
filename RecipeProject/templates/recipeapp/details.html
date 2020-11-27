@@ -1,8 +1,18 @@
-{{ data.recipename }}
+<h2>Recipe Name : {{ data.recipename }}</h2>
 {% csrf_token %}
-{% for ele in data %}
-    {{ ele.recipename }}
-    {{ ele.ingredients }}
-    {{ ele.ingredients }}
-    {{ ele.recipepic }}
-{% endfor %}
+<form method="post">
+    <table>
+        <tr>
+            <td><b>Recipe Name</b></td><td>{{ data.recipename }}</td>
+            <td rowspan="3"><img src="{{ data.recipepic.url }}" height="150" width="150" alt="recipename"></img></td>
+        </tr>
+        <tr>
+            <td><b>Ingredeants</b> </td><td>{{ data.ingridiants }}</td>
+        </tr>
+        <tr>
+            <td><b>Recipe Making</b></td><td>{{ data.making }}</td>
+        </tr>
+    </table>
+</form>
+ <a href="{% url 'home' %}"><input type="submit" value="Home"></a>
+
