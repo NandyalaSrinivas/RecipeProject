@@ -12,7 +12,7 @@
     <tbody>
     {% for ele in data %}
         <tr>
-        <td><a href="/{{ ele.id }}">{{ ele.recipename }}</a></td>
+        <td><a href="/{{ ele.id }}/details">{{ ele.recipename }}</a></td>
             <td><img src="{{ ele.recipepic.url }}" height="80" width="80" alt="ele.recipename"></img> </td>
         <td>
             <form method="post" action="{% url 'delete' ele.id %}">
